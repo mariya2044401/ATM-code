@@ -17,7 +17,7 @@ if (pinAnswer.Pin === myPin) {
             name: "operators",
             type: "list",
             message: "select one option",
-            choices: ["withdraw", "Check balance", "Fastcash"],
+            choices: ["withdraw", "Check balance", "Fastcash", "Deposit"],
         },
     ]);
     // console.log(reamount.operators);
@@ -57,15 +57,21 @@ if (pinAnswer.Pin === myPin) {
             console.log(`"Your remaining balance is:" ${myBalance} `);
         }
     }
-    else if (reamount.operators === "check balance") {
-        if (myBalance === reamount.operators) {
-            myBalance -= reamount.operators;
-        }
+    else if (reamount.operators === "Check balance") {
         console.log("your current balance is " + myBalance);
     }
-    // else{
-    //   console.log("insufficient balance")
-    // }
+    else if (reamount.operators === "Deposit") {
+        let dep = await inquirer.prompt([{
+                name: "depositamount",
+                type: "number",
+                message: "Add your amount in your account",
+            },]);
+        myBalance += dep.depositamount;
+        console.log(`"Your amount:" ${myBalance} `);
+    }
+    else {
+        console.log("Current balance");
+    }
 }
 else {
     console.log("Incorrect pin number");

@@ -1,10 +1,10 @@
 {
   "name": "@mariyakhan01/atm-code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "type": "module",
-  
+"bin": "index.js",
   "publishConfig": {
     "access": "public"
   },
